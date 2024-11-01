@@ -28,41 +28,64 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label class="form-label">Mã sản phẩm</label>
-                                            <input type="text" name="ma_san_pham" class="form-control"
+                                            <input type="text" name="ma_san_pham" class="form-control" value="{{ old('ma_san_pham') }}"
                                                 placeholder="Nhập tên danh mục">
+                                            @error('ma_san_pham')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Tên sản phẩm</label>
-                                            <input type="text" name="ten_san_pham" class="form-control"
+                                            <input type="text" name="ten_san_pham" class="form-control" value="{{ old('ten_san_pham') }}"
                                                 placeholder="Nhập tên sản phẩm">
+                                            @error('ten_san_pham')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Danh mục</label>
                                             <select name="danh_muc_id" id="danh_muc_id" class="form-control">
+                                                <option value="">Tùy Chọn</option>
                                                 @foreach ($danhSachDanhMuc as $danhMuc)
-                                                    <option value="{{ $danhMuc->id }}">{{ $danhMuc->ten_danh_muc }}
+                                                    <option value="{{ $danhMuc->id }}" {{ old('danh_muc_id') == $danhMuc->id ? 'selected' : '' }}>
+                                                        {{ $danhMuc->ten_danh_muc }}
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @error('danh_muc_id')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Giá sản phẩm</label>
-                                            <input type="text" name="gia_san_pham" class="form-control"
+                                            <input type="text" name="gia_san_pham" class="form-control" value="{{ old('gia_san_pham') }}"
                                                 placeholder="Nhập giá sản phẩm">
+                                            @error('gia_san_pham')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Giá khuyến mãi</label>
-                                            <input type="text" name="khuyen_mai" class="form-control"
+                                            <input type="text" name="khuyen_mai" class="form-control" value="{{ old('khuyen_mai') }}"
                                                 placeholder="Nhập giá khuyến mãi">
+                                            @error('khuyen_mai')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Số lượng</label>
-                                            <input type="text" name="so_luong" class="form-control"
+                                            <input type="text" name="so_luong" class="form-control" value="{{ old('so_luong') }}"
                                                 placeholder="Nhập số lượng sản phẩm">
+                                            @error('so_luong')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label for="employeeUrl" class="form-label">Hình ảnh</label>
-                                            <input type="file" name="image_path" class="form-control" >
+                                            <input type="file" name="image_path" class="form-control">
+                                            @error('image_path')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <label for="danh_muc_id" class="form-label">Tùy chỉnh khác</label>
                                         <div class="form-check form-switch mb-2 ps-3 d-flex justify-content-between">
@@ -100,6 +123,3 @@
                 </div>
             </div>
         @endsection
-
-
-  

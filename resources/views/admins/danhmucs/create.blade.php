@@ -23,16 +23,23 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="live-preview">
-                                    <form action="{{route('admin.danhmucs.store')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.danhmucs.store') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="employeeName" class="form-label">Tên danh mục</label>
-                                            <input type="text" name="ten_danh_muc" class="form-control" id="employeeName"
+                                            <input type="text" name="ten_danh_muc" class="form-control" id="employeeName" value="{{ old('ten_danh_muc') }}"
                                                 placeholder="Nhập tên danh mục">
+                                            @error('ten_danh_muc')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label for="employeeUrl" class="form-label">Hình ảnh</label>
                                             <input type="file" name="anh_danh_muc" class="form-control" id="employeeUrl">
+                                            @error('anh_danh_muc')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="text-end">
                                             <button type="submit" class="btn btn-primary">Thêm mới</button>
