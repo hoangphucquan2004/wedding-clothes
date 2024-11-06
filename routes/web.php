@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\BaiVietController;
+use App\Http\Controllers\Admin\DanhMucBaiVietController;
 use App\Http\Controllers\Admin\DanhMucController;
 use App\Http\Controllers\Admin\SanPhamController;
 use Illuminate\Support\Facades\Route;
@@ -28,4 +30,6 @@ Route::prefix('admin')->as('admin.')->group(function () {
     });
     Route::resource('danhmucs', DanhMucController::class);
     Route::resource('sanphams', SanPhamController::class);
+    Route::resource('danhmuc_baiviets', DanhMucBaiVietController::class);
+    Route::resource('baiviets', BaiVietController::class);
 });

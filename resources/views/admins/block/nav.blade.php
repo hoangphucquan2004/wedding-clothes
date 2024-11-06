@@ -106,6 +106,25 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarApps">
+                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Bài Viết</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarApps">
+                        <ul class="nav nav-sm flex-column">
+
+                            <li class="nav-item">
+                                <a href="{{ route('admin.danhmuc_baiviets.index') }}" class="nav-link" data-key="t-chat">
+                                    Danh mục Bài Viết
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.baiviets.index') }}" class="nav-link" data-key="t-chat"> Bài Viết </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
 
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
