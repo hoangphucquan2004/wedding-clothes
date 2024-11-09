@@ -39,7 +39,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'mat_khau',
         'remember_token',
     ];
 
@@ -50,6 +50,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'mat_khau' => 'hashed',
     ];
+    public function getAuthPassword()
+    {
+        return $this->mat_khau;
+    }
 }

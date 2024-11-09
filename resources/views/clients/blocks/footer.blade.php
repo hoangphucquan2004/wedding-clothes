@@ -106,8 +106,12 @@
                             </div>
                             <div class="footer-widgets">
                                 <ul>
-                                    <li><a href="javascript:void(0)">Đăng nhập</a></li>
-                                    <li><a href="javascript:void(0)">Đăng ký</a></li>
+                                    <li><a href="{{ route('login') }}">Đăng nhập</a></li>
+                                    <li><form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button href="{{ route('logout') }}">Đăng xuất</button>
+                                    </form></li>
+                                    <li><a href="{{ route('register') }}">Đăng ký</a></li>
                                     <li><a href="javascript:void(0)">Trợ giúp</a></li>
                                     <li><a href="javascript:void(0)">Ủng hộ</a></li>
                                 </ul>

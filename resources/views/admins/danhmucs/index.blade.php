@@ -42,7 +42,7 @@
                                         <table class="table align-middle table-nowrap table-striped-columns mb-0">
                                             <thead class="table-light">
                                                 <tr>
-                                                    <th scope="col">ID</th>
+                                                    <th scope="col">STT</th>
                                                     <th scope="col">Tên danh mục</th>
                                                     <th scope="col">Hình ảnh</th>
                                                     <th scope="col">Hành động</th>
@@ -61,22 +61,23 @@
                                                                 Ảnh danh mục đang trống☹️☹️☹️
                                                             @endif
                                                         </td>
-                                                        <td class="d-flex">
-                                                            <a href="{{ route('admin.danhmucs.show', $danhMuc->id) }}"> <i
-                                                                    class="ri-eye-line mx-2 fs-4"></i></a>
-                                                           <a href="{{ route('admin.danhmucs.edit', $danhMuc->id) }}"> <i class="ri-edit-2-line mx-2 fs-4"></i></a>
-                                                            <form
-                                                                action="{{ route('admin.danhmucs.destroy', $danhMuc->id) }}"
-                                                                method="POST">
+                                                        <td class="d-flex align-items-center" style="height: 124.89px;">
+                                                            <a href="{{ route('admin.danhmucs.show', $danhMuc->id) }}" class="btn btn-sm btn-outline-primary mx-1">
+                                                                <i class="ri-eye-line fs-5"></i>
+                                                            </a>
+                                                            <a href="{{ route('admin.danhmucs.edit', $danhMuc->id) }}" class="btn btn-sm btn-outline-secondary mx-1">
+                                                                <i class="ri-edit-2-line fs-5"></i>
+                                                            </a>
+                                                            <form action="{{ route('admin.danhmucs.destroy', $danhMuc->id) }}" method="POST" class="d-inline-block mx-1">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-link p-0"
-                                                                    onclick="return confirm('Bạn có chắc chắn xóa danh mục này không')">
-                                                                    <i class="ri-delete-bin-line mx-2 fs-4"></i>
+                                                                <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                                        onclick="return confirm('Bạn có chắc chắn xóa danh mục này không?')">
+                                                                    <i class="ri-delete-bin-line fs-5"></i>
                                                                 </button>
                                                             </form>
-
                                                         </td>
+
                                                     </tr>
                                                 @endforeach
 
@@ -100,7 +101,7 @@
         &lt;th scope=&quot;col&quot;&gt;Date&lt;/th&gt;
         &lt;th scope=&quot;col&quot;&gt;Total&lt;/th&gt;
         &lt;th scope=&quot;col&quot;&gt;Status&lt;/th&gt;
-        &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;   
+        &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
     &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;

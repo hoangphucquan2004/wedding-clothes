@@ -16,7 +16,7 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        $danhSachSanPham = SanPham::with('danhMuc')->latest('id')->paginate(5);
+        $danhSachSanPham = SanPham::with('danhMuc')->paginate(5);
 
         return view('admins.sanphams.index', compact('danhSachSanPham'));
     }

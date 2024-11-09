@@ -15,7 +15,7 @@ class DanhMucBaiVietController extends Controller
      */
     public function index()
     {
-        $listDanhMuc = Danh_muc_Bai_viet::query()->latest('id')->paginate(5);
+        $listDanhMuc = Danh_muc_Bai_viet::query()->paginate(5);
 
         return view('admins\danhmuc_baiviets\index', compact('listDanhMuc'));
     }

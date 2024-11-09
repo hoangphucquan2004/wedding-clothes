@@ -15,7 +15,7 @@
                         <button class="search-button"><i class="ion-ios-search"></i></button>
                     </form>
                 </div>
-
+                {{Auth::user()->name}}
 
                 <div class="header-contact d-none d-md-flex">
                     <i class="fa fa-headphones-alt"></i>

@@ -15,7 +15,7 @@ class DanhMucController extends Controller
      */
     public function index()
     {
-        $listDanhMuc = DanhMuc::query()->latest('id')->paginate(5);
+        $listDanhMuc = DanhMuc::query()->paginate(5);
 
         return view('admins\danhmucs\index', compact('listDanhMuc'));
     }

@@ -42,7 +42,7 @@
                                         <table class="table align-middle table-nowrap table-striped-columns mb-0">
                                             <thead class="table-light">
                                                 <tr>
-                                                    <th scope="col">ID</th>
+                                                    <th scope="col">STT</th>
                                                     <th scope="col">Tên danh mục bài viết</th>
                                                     <th scope="col">Hình ảnh</th>
                                                     <th scope="col">Mô tả bài viết</th>
@@ -67,7 +67,7 @@
                                                         <td>{{ $danhMuc->mo_ta_bai_viet }}</td>
                                                         <td>{{ $danhMuc->thu_tu }}</td>
                                                         <td>{{ $danhMuc->trang_thai ? 'Hoạt Động' : 'Không Hoạt Động'}}</td>
-                                                        <td class="d-flex">
+                                                        <td class="d-flex align-items-center" style="height: 124.89px;">
                                                             <a href="{{ route('admin.danhmuc_baiviets.show', $danhMuc->id) }}"> <i
                                                                     class="ri-eye-line mx-2 fs-4"></i></a>
                                                            <a href="{{ route('admin.danhmuc_baiviets.edit', $danhMuc->id) }}"> <i class="ri-edit-2-line mx-2 fs-4"></i></a>

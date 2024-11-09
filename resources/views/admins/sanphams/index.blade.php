@@ -45,7 +45,7 @@
                                         <table class="table align-middle table-nowrap table-striped-columns mb-0">
                                             <thead class="table-light">
                                                 <tr>
-                                                    <th scope="col">ID</th>
+                                                    <th scope="col">STT</th>
                                                     <th scope="col">Mã sảnphẩm</th>
                                                     <th scope="col">Tên sản phẩm</th>
                                                     <th scope="col">Danh Mục</th>
@@ -72,7 +72,7 @@
                                                             @endif
                                                         </td>
                                                         <td>{{ $sanPham->so_luong }}</td>
-                                                        <td class="d-flex justify-content-between ">
+                                                        <td class="d-flex align-items-center" style="height: 124.89px;">
                                                             <a href="{{ route('admin.sanphams.show', $sanPham->id) }}"> <i
                                                                     class="ri-eye-line mx-2 fs-4"></i></a>
                                                             <a href="{{ route('admin.sanphams.edit', $sanPham->id) }}"> <i
@@ -112,7 +112,7 @@
         &lt;th scope=&quot;col&quot;&gt;Date&lt;/th&gt;
         &lt;th scope=&quot;col&quot;&gt;Total&lt;/th&gt;
         &lt;th scope=&quot;col&quot;&gt;Status&lt;/th&gt;
-        &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;   
+        &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
     &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
