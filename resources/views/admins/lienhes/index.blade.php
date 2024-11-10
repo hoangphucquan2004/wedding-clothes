@@ -1,79 +1,78 @@
 @extends('layouts.admin')
 
 @section('content')
-<style>
-    .page-title-box {
-        background-color: #f4f6f9;
-        padding: 15px;
-        border-radius: 8px;
-    }
+    <style>
+        .page-title-box {
+            background-color: #f4f6f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
 
-    .breadcrumb {
-        background-color: transparent;
-    }
+        .breadcrumb {
+            background-color: transparent;
+        }
 
-    .card {
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-        border: none;
-        border-radius: 8px;
-    }
+        .card {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 8px;
+        }
 
-    .table {
-        margin-top: 20px;
-    }
+        .table {
+            margin-top: 20px;
+        }
 
-    .table thead th {
-        background-color: #e9ecef;
-        font-weight: bold;
-        color: #333;
-        text-align: center;
-    }
+        .table thead th {
+            background-color: #e9ecef;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
 
-    .table tbody tr td {
-        text-align: center;
-        vertical-align: middle;
-    }
+        .table tbody tr td {
+            text-align: center;
+            vertical-align: middle;
+        }
 
-    .table-responsive {
-        overflow-x: auto;
-    }
+        .table-responsive {
+            overflow-x: auto;
+        }
 
-    .btn-link {
-        color: #333;
-    }
+        .btn-link {
+            color: #333;
+        }
 
-    .btn-link i {
-        transition: color 0.2s;
-    }
+        .btn-link i {
+            transition: color 0.2s;
+        }
 
-    .btn-link:hover i {
-        color: #0d6efd;
-    }
+        .btn-link:hover i {
+            color: #0d6efd;
+        }
 
-    /* Badge color for status */
-    .badge-status {
-        padding: 5px 10px;
-        border-radius: 8px;
-        font-size: 0.85em;
-        font-weight: bold;
-    }
+        /* Badge color for status */
+        .badge-status {
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
 
-    .badge-status.chua-lien-he {
-        background-color: #f8d7da;
-        color: #721c24;
-    }
+        .badge-status.chua-lien-he {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
 
-    .badge-status.dang-lien-he {
-        background-color: #fff3cd;
-        color: #856404;
-    }
+        .badge-status.dang-lien-he {
+            background-color: #fff3cd;
+            color: #856404;
+        }
 
-    .badge-status.hoan-thanh {
-        background-color: #d4edda;
-        color: #155724;
-    }
-
-</style>
+        .badge-status.hoan-thanh {
+            background-color: #d4edda;
+            color: #155724;
+        }
+    </style>
 
     <div class="row">
         <div class="col">
@@ -139,25 +138,28 @@
                                                         <td>{{ $lienHe->noi_dung }}</td>
                                                         <td>{{ $lienHe->date }}</td>
                                                         <td>
-                                                            @if($lienHe->trang_thai === 'Chưa liên hệ')
-                                                                <span class="badge-status chua-lien-he">{{ $lienHe->trang_thai }}</span>
+                                                            @if ($lienHe->trang_thai === 'Chưa liên hệ')
+                                                                <span
+                                                                    class="badge-status chua-lien-he">{{ $lienHe->trang_thai }}</span>
                                                             @elseif($lienHe->trang_thai === 'Đang liên hệ')
-                                                                <span class="badge-status dang-lien-he">{{ $lienHe->trang_thai }}</span>
+                                                                <span
+                                                                    class="badge-status dang-lien-he">{{ $lienHe->trang_thai }}</span>
                                                             @elseif($lienHe->trang_thai === 'Hoàn thành')
-                                                                <span class="badge-status hoan-thanh">{{ $lienHe->trang_thai }}</span>
+                                                                <span
+                                                                    class="badge-status hoan-thanh">{{ $lienHe->trang_thai }}</span>
                                                             @endif
                                                         </td>
                                                         <td class="d-flex justify-content-between ">
-                                                            <a href="{{ route('admin.baiviets.show', $lienHe->id) }}"> <i
+                                                            <a href="{{ route('admin.baiviets.show', $lienHe->id) }}"class="btn btn-sm btn-outline-primary mx-1"> <i
                                                                     class="ri-eye-line mx-2 fs-4"></i></a>
-                                                            <a href="{{ route('admin.baiviets.edit', $lienHe->id) }}"> <i
+                                                            <a href="{{ route('admin.baiviets.edit', $lienHe->id) }}"class="btn btn-sm btn-outline-secondary mx-1"> <i
                                                                     class="ri-edit-2-line mx-2 fs-4"></i></a>
                                                             <form
-                                                                action="{{ route('admin.baiviets.destroy', $lienHe->id) }}"
+                                                                action="{{ route('admin.baiviets.destroy', $lienHe->id) }}"class="d-inline-block mx-1"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-link p-0"
+                                                                <button type="submit" class="btn btn-sm btn-outline-danger"
                                                                     onclick="return confirm('Bạn có chắc chắn xóa sản phẩm này không')">
                                                                     <i class="ri-delete-bin-line mx-2 fs-4"></i>
                                                                 </button>

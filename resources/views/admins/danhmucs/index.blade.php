@@ -1,6 +1,78 @@
 @extends('layouts.admin')
 
 @section('content')
+<style>
+    .page-title-box {
+        background-color: #f4f6f9;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .breadcrumb {
+        background-color: transparent;
+    }
+
+    .card {
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 8px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .table thead th {
+        background-color: #e9ecef;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+    }
+
+    .table tbody tr td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .btn-link {
+        color: #333;
+    }
+
+    .btn-link i {
+        transition: color 0.2s;
+    }
+
+    .btn-link:hover i {
+        color: #0d6efd;
+    }
+
+    /* Badge color for status */
+    .badge-status {
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 0.85em;
+        font-weight: bold;
+    }
+
+    .badge-status.chua-lien-he {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+
+    .badge-status.dang-lien-he {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+
+    .badge-status.hoan-thanh {
+        background-color: #d4edda;
+        color: #155724;
+    }
+</style>
     <div class="row">
         <div class="col">
             <div class="col-12">
@@ -61,7 +133,7 @@
                                                                 Ảnh danh mục đang trống☹️☹️☹️
                                                             @endif
                                                         </td>
-                                                        <td class="d-flex align-items-center" style="height: 124.89px;">
+                                                        <td class="d-flex align-items-center justify-content-between" style="height: 124.89px;">
                                                             <a href="{{ route('admin.danhmucs.show', $danhMuc->id) }}" class="btn btn-sm btn-outline-primary mx-1">
                                                                 <i class="ri-eye-line fs-5"></i>
                                                             </a>

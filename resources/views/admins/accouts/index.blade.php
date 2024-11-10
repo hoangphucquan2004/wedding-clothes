@@ -1,17 +1,90 @@
 @extends('layouts.admin')
 
 @section('content')
+    <style>
+        .page-title-box {
+            background-color: #f4f6f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+        }
+
+        .card {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 8px;
+        }
+
+        .table {
+            margin-top: 20px;
+        }
+
+        .table thead th {
+            background-color: #e9ecef;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+
+        .table tbody tr td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .btn-link {
+            color: #333;
+        }
+
+        .btn-link i {
+            transition: color 0.2s;
+        }
+
+        .btn-link:hover i {
+            color: #0d6efd;
+        }
+
+        /* Badge color for status */
+        .badge-status {
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .badge-status.chua-lien-he {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge-status.dang-lien-he {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-status.hoan-thanh {
+            background-color: #d4edda;
+            color: #155724;
+        }
+    </style>
+
     <div class="row">
         <div class="col">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                    <h4 class="mb-sm-0">Bài Viết</h4>
+                    <h4 class="mb-sm-0">Tài Khoản</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Bài Viết</a>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tài Khoản</a>
                             </li>
-                            <li class="breadcrumb-item active">Danh sách Bài Viết</li>
+                            <li class="breadcrumb-item active">Danh sách Tài Khoản</li>
                         </ol>
                     </div>
 
@@ -25,9 +98,7 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1"> <a href="{{ route('admin.baiviets.create') }}"
-                                        class="btn btn-primary">+ Thêm
-                                        bài viết</a></h4>
+                                <h4 class="card-title mb-0 flex-grow-1"></h4>
                                 <div class="flex-shrink-0">
                                     <div class="form-check form-switch form-switch-right form-switch-md">
                                         <label for="card-tables-showcode" class="form-label text-muted">Show Code</label>
@@ -46,37 +117,30 @@
                                             <thead class="table-light">
                                                 <tr>
                                                     <th scope="col">STT</th>
-                                                    <th scope="col">Title</th>
-                                                    <th scope="col">Danh Mục Bài Viết</th>
-                                                    <th scope="col">Ảnh</th>
-                                                    <th scope="col">View</th>
-                                                    <th scope="col">Trạng Thái</th>
+                                                    <th scope="col">Tên Tài Khoản</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Địa Chỉ</th>
+                                                    <th scope="col">Điện Thoại</th>
+                                                    <th scope="col">Vai Trò</th>
                                                     <th scope="col">Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($danhSachBaiViet as $baiViet)
+                                                @foreach ($listAcc as $acc)
                                                     <tr>
-                                                        <td>{{ $baiViet->id }}</td>
-                                                        <td>{{ $baiViet->title }}</td>
-                                                        <td>{{ $baiViet->danh_muc_Bai_viet->ten_danh_muc }}</td>
-                                                        <td>
-                                                            @if ($baiViet->thumbnail)
-                                                                <img src="{{ Storage::url($baiViet->thumbnail) }}"
-                                                                    alt="Ảnh Sản phẩm" width="120px" height="100px">
-                                                            @else
-                                                                Ảnh Sản phẩm đang trống☹️☹️☹️
-                                                            @endif
-                                                        </td>
-                                                        <td>{{ $baiViet->views }}</td>
-                                                        <td>{{ $baiViet->status }}</td>
-                                                        <td class="d-flex align-items-center justify-content-between" style="height: 124.89px;">
-                                                            <a href="{{ route('admin.baiviets.show', $baiViet->id) }}"class="btn btn-sm btn-outline-primary mx-1"> <i
+                                                        <td>{{ $acc->id }}</td>
+                                                        <td>{{ $acc->name }}</td>
+                                                        <td>{{ $acc->email }}</td>
+                                                        <td>{{ $acc->dia_chi ?? 'Chưa có địa chỉ'}}</td>
+                                                        <td>{{ $acc->so_dien_thoai ?? 'Chưa có số điện thoại'}}</td>
+                                                        <td>{{ $acc->role }}</td>
+                                                        <td class="d-flex justify-content-between ">
+                                                            <a href="{{ route('admin.baiviets.show', $acc->id) }}"class="btn btn-sm btn-outline-primary mx-1"> <i
                                                                     class="ri-eye-line mx-2 fs-4"></i></a>
-                                                            <a href="{{ route('admin.baiviets.edit', $baiViet->id) }}"class="btn btn-sm btn-outline-secondary mx-1"> <i
+                                                            <a href="{{ route('admin.baiviets.edit', $acc->id) }}"class="btn btn-sm btn-outline-secondary mx-1"> <i
                                                                     class="ri-edit-2-line mx-2 fs-4"></i></a>
                                                             <form
-                                                                action="{{ route('admin.baiviets.destroy', $baiViet->id) }}"class="d-inline-block mx-1"
+                                                                action="{{ route('admin.baiviets.destroy', $acc->id) }}"class="d-inline-block mx-1"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')

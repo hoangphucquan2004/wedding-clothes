@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AccoutController;
 use App\Http\Controllers\Admin\BaiVietController;
 use App\Http\Controllers\Admin\DanhMucBaiVietController;
 use App\Http\Controllers\Admin\DanhMucController;
@@ -42,4 +43,5 @@ Route::prefix('admin')->as('admin.')->group(function () {
     Route::resource('danhmuc_baiviets', DanhMucBaiVietController::class);
     Route::resource('baiviets', BaiVietController::class);
     Route::resource('lienhes', LienHeController::class);
+    Route::resource('accouts', AccoutController::class);
 });

@@ -52,14 +52,13 @@
         <div class="p-lg-5 p-4">
             <div>
                 <h5 class="text-primary">Welcome Back !</h5>
-                <p class="text-muted">Sign in to continue to Velzon.</p>
             </div>
 
             <div class="mt-4">
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" class="form-label">Tên Đăng Nhập</label>
                         <input name="name" required="required" value="{{ old('name') }}" type="text"
                             class="form-control" id="username" placeholder="Enter username">
                         @error('name')
@@ -71,7 +70,7 @@
                         <div class="float-end">
                             <a href="#" class="text-muted">Forgot password?</a>
                         </div>
-                        <label class="form-label" for="password-input">Password</label>
+                        <label class="form-label" for="password-input">Mật Khẩu</label>
                         <div class="position-relative auth-pass-inputgroup mb-3">
                             <input name="mat_khau" type="password" class="form-control pe-5 password-input"
                                 placeholder="Enter password" id="password-input" value="{{ old('mat_khau') }}">
@@ -91,23 +90,6 @@
 
                     <div class="mt-4">
                         <button class="btn btn-success w-100" type="submit">Sign In</button>
-                    </div>
-
-                    <div class="mt-4 text-center">
-                        <div class="signin-other-title">
-                            <h5 class="fs-13 mb-4 title">Sign In with</h5>
-                        </div>
-
-                        <div>
-                            <button type="button" class="btn btn-primary btn-icon waves-effect waves-light"><i
-                                    class="ri-facebook-fill fs-16"></i></button>
-                            <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i
-                                    class="ri-google-fill fs-16"></i></button>
-                            <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i
-                                    class="ri-github-fill fs-16"></i></button>
-                            <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i
-                                    class="ri-twitter-fill fs-16"></i></button>
-                        </div>
                     </div>
 
                 </form>

@@ -1,6 +1,78 @@
 @extends('layouts.admin')
 
 @section('content')
+<style>
+    .page-title-box {
+        background-color: #f4f6f9;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .breadcrumb {
+        background-color: transparent;
+    }
+
+    .card {
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 8px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .table thead th {
+        background-color: #e9ecef;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+    }
+
+    .table tbody tr td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .btn-link {
+        color: #333;
+    }
+
+    .btn-link i {
+        transition: color 0.2s;
+    }
+
+    .btn-link:hover i {
+        color: #0d6efd;
+    }
+
+    /* Badge color for status */
+    .badge-status {
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 0.85em;
+        font-weight: bold;
+    }
+
+    .badge-status.chua-lien-he {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+
+    .badge-status.dang-lien-he {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+
+    .badge-status.hoan-thanh {
+        background-color: #d4edda;
+        color: #155724;
+    }
+</style>
     <div class="row">
         <div class="col">
             <div class="col-12">
@@ -22,8 +94,8 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1"> <a href="{{ route('admin.danhmuc_baiviets.create') }}"
-                                        class="btn btn-primary">+ Thêm
+                                <h4 class="card-title mb-0 flex-grow-1"> <a
+                                        href="{{ route('admin.danhmuc_baiviets.create') }}" class="btn btn-primary">+ Thêm
                                         danh mục Bài Viết</a></h4>
                                 <div class="flex-shrink-0">
                                     <div class="form-check form-switch form-switch-right form-switch-md">
@@ -66,17 +138,19 @@
                                                         </td>
                                                         <td>{{ $danhMuc->mo_ta_bai_viet }}</td>
                                                         <td>{{ $danhMuc->thu_tu }}</td>
-                                                        <td>{{ $danhMuc->trang_thai ? 'Hoạt Động' : 'Không Hoạt Động'}}</td>
-                                                        <td class="d-flex align-items-center" style="height: 124.89px;">
-                                                            <a href="{{ route('admin.danhmuc_baiviets.show', $danhMuc->id) }}"> <i
-                                                                    class="ri-eye-line mx-2 fs-4"></i></a>
-                                                           <a href="{{ route('admin.danhmuc_baiviets.edit', $danhMuc->id) }}"> <i class="ri-edit-2-line mx-2 fs-4"></i></a>
-                                                            <form
-                                                                action="{{ route('admin.danhmuc_baiviets.destroy', $danhMuc->id) }}"
-                                                                method="POST">
+                                                        <td>{{ $danhMuc->trang_thai ? 'Hoạt Động' : 'Không Hoạt Động' }}
+                                                        </td>
+                                                        <td class="d-flex align-items-center justify-content-between" style="height: 124.89px;">
+                                                            <a
+                                                                href="{{ route('admin.danhmuc_baiviets.show', $danhMuc->id) }}" class="btn btn-sm btn-outline-primary mx-1">
+                                                                <i class="ri-eye-line mx-2 fs-4"></i></a>
+                                                            <a
+                                                                href="{{ route('admin.danhmuc_baiviets.edit', $danhMuc->id) }}" class="btn btn-sm btn-outline-secondary mx-1">
+                                                                <i class="ri-edit-2-line mx-2 fs-4"></i></a>
+                                                            <form action="{{ route('admin.danhmuc_baiviets.destroy', $danhMuc->id) }}" method="POST" class="d-inline-block mx-1">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-link p-0"
+                                                                <button type="submit" class="btn btn-sm btn-outline-danger"
                                                                     onclick="return confirm('Bạn có chắc chắn xóa danh mục này không')">
                                                                     <i class="ri-delete-bin-line mx-2 fs-4"></i>
                                                                 </button>
