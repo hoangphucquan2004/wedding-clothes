@@ -22,12 +22,12 @@ class StoreDanhMuc_BaiVietRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ten_danh_muc' => ['required', 'string', 'max:255', 'unique:danh_muc__bai_viets,ten_danh_muc'],
+            'ten_danh_muc' => ['required', 'string', 'max:255', 'unique:danh_muc_bai_viets,ten_danh_muc'],
             'slug' => ['required', 'string', 'max:100'],
             'mo_ta_bai_viet' => ['required', 'string', 'max:2000'],
             'thu_tu' => ['required', 'string', 'min:1'],
             'anh_danh_muc' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
-            'danh_muc__bai_viet_id' => ['required', 'exists:danh_muc__bai_viets,id']
+            'danh_muc__bai_viet_id' => ['required', 'exists:danh_muc_bai_viets,id']
         ];
     }
     public function messages(): array

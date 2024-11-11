@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Danh_muc_Bai_viet extends Model
+class DanhMucBaiViet extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'ten_danh_muc',
         'anh_danh_muc',
@@ -21,6 +22,6 @@ class Danh_muc_Bai_viet extends Model
     ];
     public function bai_Viet()
     {
-        return $this->hasMany(Bai_Viet::class);
+        return $this->hasMany(BaiViet::class);
     }
 }

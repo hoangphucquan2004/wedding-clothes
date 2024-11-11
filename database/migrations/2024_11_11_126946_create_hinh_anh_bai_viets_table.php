@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('hinh_anh_bai_viets', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Bai_Viet::class)->constrained('bai_viets');
+            $table->foreignIdFor(\App\Models\BaiViet::class)->constrained('bai_viets');
             $table->string('hinh_anh');
             $table->timestamps();
         });

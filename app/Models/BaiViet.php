@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bai_Viet extends Model
+class BaiViet extends Model
 {
     use HasFactory;
-    protected $table = 'bai_viets';
 
     protected $fillable = [
-        'danh_muc__bai_viet_id',
+        'danh_muc_bai_viet_id',
         'title',
         'slug',
         'content',
@@ -22,7 +21,7 @@ class Bai_Viet extends Model
     ];
     public function danh_muc_Bai_viet()
     {
-        return $this->belongsTo(Danh_muc_Bai_viet::class);
+        return $this->belongsTo(DanhMucBaiViet::class);
     }
     public function hinhAnhBaiViets()
     {

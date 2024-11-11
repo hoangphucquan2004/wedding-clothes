@@ -13,6 +13,6 @@ class HinhAnhBaiViet extends Model
         'hinh_anh'
     ];
     public function bai_Viet(){
-        return $this->belongsTo(Bai_Viet::class);
+        return $this->belongsTo(BaiViet::class);
     }
 }

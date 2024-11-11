@@ -787,19 +787,25 @@
                         <img class="rounded-circle header-profile-user"
                             src="{{ asset('assets/admin/images/users/avatar-1.jpg') }}" alt="Header Avatar">
                         <span class="text-start ms-xl-2">
-                            <span
-                                class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::user()->name }}</span>
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
+                                @if (Auth::user())
+                                    {{ Auth::user()->name }}
+                                @endif
+                            </span>
                             <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Admin</span>
                         </span>
                     </span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <h6 class="dropdown-header">Welcome {{ Auth::user()->name }}</h6>
+                    <h6 class="dropdown-header">Welcome @if (Auth::user())
+                            {{ Auth::user()->name }}
+                        @endif
+                    </h6>
                     <form class="dropdown-item" action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i><button style="border: 0; background: none"
-                            href="{{ route('logout') }}">Đăng xuất</button>
+                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i><button
+                            style="border: 0; background: none" href="{{ route('logout') }}">Đăng xuất</button>
                     </form>
                 </div>
             </div>
