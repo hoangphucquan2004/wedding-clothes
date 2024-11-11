@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('login', [AuthController::class, 'showFormLogin']);
 Route::post('login', [AuthController::class, 'login'])->name('login');
 
@@ -28,8 +29,8 @@ Route::post('register', [AuthController::class, 'register'])->name('register');
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', function () {
-    return view('layouts.client');
-})->middleware('auth');
+    return view('clients.blocks.home');
+});
 
 
 

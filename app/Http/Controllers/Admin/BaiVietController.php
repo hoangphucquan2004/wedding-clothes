@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBaiVietRequest;
-use App\Models\Bai_Viet;
-use App\Models\Danh_muc_Bai_viet;
+use App\Models\BaiViet;
+use App\Models\DanhMucBaiViet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,8 +16,7 @@ class BaiVietController extends Controller
      */
     public function index()
     {
-        //
-        $danhSachBaiViet = Bai_Viet::with('danh_Muc_Bai_viet')->paginate(5);
+        $danhSachBaiViet = BaiViet::with('danh_muc_Bai_viet')->paginate(5);
 
         return view('admins.baiviets.index', compact('danhSachBaiViet'));
     }
@@ -28,7 +27,7 @@ class BaiVietController extends Controller
     public function create()
     {
         //
-        $danhSachDanhMuc = Danh_muc_Bai_viet::all();
+        $danhSachDanhMuc = DanhMucBaiViet::all();
 
         return view('admins.baiviets.create', compact('danhSachDanhMuc'));
     }
@@ -50,7 +49,7 @@ class BaiVietController extends Controller
                 $params['thumbnail'] = null;
             }
 
-            $baiViet = Bai_Viet::query()->create($params);
+            $baiViet = BaiViet::query()->create($params);
 
             return redirect()->route('admin.baiviets.index')->with('succeess', 'Thêm bài viết thành công');
         }
@@ -62,7 +61,7 @@ class BaiVietController extends Controller
     public function show(string $id)
     {
         //
-        $baiViet = Bai_Viet::with('danh_muc_Bai_viet')->findOrFail($id);
+        $baiViet = BaiViet::with('danh_muc_Bai_viet')->findOrFail($id);
 
         return view('admins.baiviets.show', compact('baiViet'));
     }
@@ -73,9 +72,9 @@ class BaiVietController extends Controller
     public function edit(string $id)
     {
         //
-        $danhSachBaiViet = Danh_muc_Bai_viet::all();
+        $danhSachBaiViet = DanhMucBaiViet::all();
 
-        $baiViet = Bai_Viet::findOrFail($id);
+        $baiViet = BaiViet::findOrFail($id);
 
         return view('admins.baiviets.edit', compact('baiViet', 'danhSachBaiViet'));
     }
@@ -91,7 +90,7 @@ class BaiVietController extends Controller
             $params = $request->except('_token', '_method');
 
 
-            $baiViet = Bai_Viet::query()->findOrFail($id);
+            $baiViet = BaiViet::query()->findOrFail($id);
 
             if ($request->hasFile('thumbnail')) {
 
@@ -116,7 +115,7 @@ class BaiVietController extends Controller
     public function destroy(string $id)
     {
         //
-        $sanPham = Bai_Viet::query()->findOrFail($id);
+        $sanPham = BaiViet::query()->findOrFail($id);
 
         if ($sanPham->thumbnail && Storage::disk('public')->exists($sanPham->thumbnail)) {
 

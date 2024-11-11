@@ -140,8 +140,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="copyright">
-                        <span>Copyright &copy; 2023 <a href="javascript:void(0)">Kenne.</a> All rights
-                            reserved.</span>
+                        <span>Copyright &copy; 2024 <a href="javascript:void(0)">Kenne.</a> Hoàng Phúc Quân.</span>
                     </div>
                 </div>
                 <div class="col-md-6">

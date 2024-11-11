@@ -19,7 +19,6 @@ class SanPham extends Model
         'so_luong',
         'ngay_nhap',
         'khuyen_mai',
-        'luot_xem',
         'trang_thai',
         'is_new',
         'is_hot',

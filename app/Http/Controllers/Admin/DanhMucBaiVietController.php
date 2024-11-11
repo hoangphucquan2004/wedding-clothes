@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDanhMuc_BaiVietRequest;
-use App\Models\Danh_muc_Bai_viet;
+use App\Models\DanhMucBaiViet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,7 +15,7 @@ class DanhMucBaiVietController extends Controller
      */
     public function index()
     {
-        $listDanhMuc = Danh_muc_Bai_viet::query()->paginate(5);
+        $listDanhMuc = DanhMucBaiViet::query()->paginate(5);
 
         return view('admins\danhmuc_baiviets\index', compact('listDanhMuc'));
     }
@@ -47,7 +47,7 @@ class DanhMucBaiVietController extends Controller
             }
         }
 
-        Danh_muc_Bai_viet::create($params);
+        DanhMucBaiViet::create($params);
 
         return redirect()->route('admin.danhmuc_baiviets.index')->with('success', 'Thêm danh mục bài Viết thành công');
     }
@@ -58,7 +58,7 @@ class DanhMucBaiVietController extends Controller
     public function show(string $id)
     {
         //
-        $danhMuc = Danh_muc_Bai_viet::findOrFail($id);
+        $danhMuc = DanhMucBaiViet::findOrFail($id);
 
         return view('admins\danhmuc_baiviets\show', compact('danhMuc'));
     }
@@ -68,7 +68,7 @@ class DanhMucBaiVietController extends Controller
      */
     public function edit(string $id)
     {
-        $danhMuc = Danh_muc_Bai_viet::findOrFail($id);
+        $danhMuc = DanhMucBaiViet::findOrFail($id);
 
         return view('admins\danhmuc_baiviets\edit', compact('danhMuc'));
     }
@@ -83,7 +83,7 @@ class DanhMucBaiVietController extends Controller
 
             $params = $request->except('_token', '_method');
             $params['trang_thai'] = $request->has('trang_thai') ? 1 : 0;
-            $danhMuc = Danh_muc_Bai_viet::findOrFail($id);
+            $danhMuc = DanhMucBaiViet::findOrFail($id);
 
             if ($request->hasFile('anh_danh_muc')) {
 
@@ -109,7 +109,7 @@ class DanhMucBaiVietController extends Controller
     public function destroy(string $id)
     {
         {
-            $danhMuc = Danh_muc_Bai_viet::findOrFail($id);
+            $danhMuc = DanhMucBaiViet::findOrFail($id);
 
             $anhDanhMuc = $danhMuc->anh_danh_muc;
 

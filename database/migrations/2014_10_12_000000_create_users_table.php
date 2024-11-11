@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('mat_khau');
-            $table->string('so_dien_thoai');
-            $table->string('dia_chi');
+            $table->string('so_dien_thoai')->nullable();
+            $table->string('dia_chi')->nullable();
             $table->enum('role',[User::ROLE_ADMIN,User::ROLE_USER])->default(User::ROLE_USER);
             $table->rememberToken();
             $table->timestamps();
