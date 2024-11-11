@@ -109,7 +109,7 @@
                                                     <tr>
                                                         <td>{{ $baiViet->id }}</td>
                                                         <td>{{ $baiViet->title }}</td>
-                                                        <td>{{ $baiViet->danh_muc_Bai_viet->ten_danh_muc }}</td>
+                                                        <td>{{ $baiViet->danhMucBaiViet->ten_danh_muc }}</td>
                                                         <td>
                                                             @if ($baiViet->thumbnail)
                                                                 <img src="{{ Storage::url($baiViet->thumbnail) }}"

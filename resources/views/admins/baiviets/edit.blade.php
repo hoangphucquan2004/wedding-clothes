@@ -37,15 +37,15 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Danh mục Bài Viết</label>
-                                            <select name="danh_muc__bai_viet_id" id="danh_muc__bai_viet_id" class="form-control">
+                                            <select name="danh_muc_bai_viet_id" id="danh_muc_bai_viet_id" class="form-control">
                                                 @foreach ($danhSachBaiViet as $bai)
                                                     <option value="{{ $bai->id }}"
-                                                        {{ $bai->danh_muc__bai_viet_id == $bai->id ? 'selected' : '' }}>
+                                                        {{ $bai->danh_muc_bai_viet_id == $bai->id ? 'selected' : '' }}>
                                                         {{ $bai->ten_danh_muc }}
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            @error('danh_muc__bai_viet_id')
+                                            @error('danh_muc_bai_viet_id')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

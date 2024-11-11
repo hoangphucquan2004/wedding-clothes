@@ -19,7 +19,7 @@ class BaiViet extends Model
         'status',
         'views',
     ];
-    public function danh_muc_Bai_viet()
+    public function danhMucBaiViet()
     {
         return $this->belongsTo(DanhMucBaiViet::class);
     }

@@ -27,7 +27,6 @@ class StoreDanhMuc_BaiVietRequest extends FormRequest
             'mo_ta_bai_viet' => ['required', 'string', 'max:2000'],
             'thu_tu' => ['required', 'string', 'min:1'],
             'anh_danh_muc' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
-            'danh_muc__bai_viet_id' => ['required', 'exists:danh_muc_bai_viets,id']
         ];
     }
     public function messages(): array
@@ -54,9 +53,6 @@ class StoreDanhMuc_BaiVietRequest extends FormRequest
             'anh_danh_muc.image'=>'Trường Ảnh Phải Bắt Buộc Là Ảnh',
             'anh_danh_muc.mimes'=>'Tường Ảnh Bắt Buộc Phải Là Dường Dẫn .igf, png, jpeg',
             'anh_danh_muc.max'=>'Tường Ảnh Không Quá 2048kb',
-
-            'danh_muc__bai_viet_id.required'=>'Trường Danh Mục Không Được Bỏ Trống',
-            'danh_muc__bai_viet_id.exists'=>'Trường Danh Mục Phải Chọn',
 
         ];
     }

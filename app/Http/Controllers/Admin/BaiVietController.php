@@ -16,7 +16,7 @@ class BaiVietController extends Controller
      */
     public function index()
     {
-        $danhSachBaiViet = BaiViet::with('danh_muc_Bai_viet')->paginate(5);
+        $danhSachBaiViet = BaiViet::with('danhMucBaiViet')->paginate(5);
 
         return view('admins.baiviets.index', compact('danhSachBaiViet'));
     }

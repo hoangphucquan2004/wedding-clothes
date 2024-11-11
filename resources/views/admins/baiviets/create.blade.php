@@ -36,17 +36,17 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Danh mục Bài Viết</label>
-                                            <select name="danh_muc__bai_viet_id" id="danh_muc__bai_viet_id"
+                                            <select name="danh_muc_bai_viet_id" id="danh_muc_bai_viet_id"
                                                 class="form-control">
                                                 <option value="">Tùy Chọn</option>
                                                 @foreach ($danhSachDanhMuc as $danhMuc)
                                                     <option value="{{ $danhMuc->id }}"
-                                                        {{ old('danh_muc__bai_viet_id') == $danhMuc->id ? 'selected' : '' }}>
+                                                        {{ old('danh_muc_bai_viet_id') == $danhMuc->id ? 'selected' : '' }}>
                                                         {{ $danhMuc->ten_danh_muc }}
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            @error('danh_muc__bai_viet_id')
+                                            @error('danh_muc_bai_viet_id')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
