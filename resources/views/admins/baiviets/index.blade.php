@@ -1,6 +1,56 @@
 @extends('layouts.admin')
 
 @section('content')
+<style>
+    /* Cải thiện giao diện phân trang */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pagination .page-item {
+    margin: 0 5px;
+}
+
+.pagination .page-link {
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: 1px solid #007bff;
+    color: #007bff;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination .page-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination .active .page-link {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.pagination .disabled .page-link {
+    color: #d6d6d6;
+    pointer-events: none;
+}
+
+.pagination .page-item:first-child .page-link {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.pagination .page-item:last-child .page-link {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+</style>
     <div class="row">
         <div class="col">
             <div class="col-12">
@@ -92,6 +142,7 @@
 
                                             </tbody>
                                         </table>
+                                        {{$danhSachBaiViet->links()}}
                                     </div>
                                 </div>
                                 <div class="d-none code-view">
