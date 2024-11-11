@@ -89,7 +89,7 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarApps">
-                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Sản phẩm</span>
+                        <i class="ri-t-shirt-2-fill"></i> <span data-key="t-apps">Sản phẩm</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarApps">
                         <ul class="nav nav-sm flex-column">
@@ -107,11 +107,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarApps">
-                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Bài Viết</span>
+                    <a class="nav-link menu-link" href="#sidebarCrypto" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarCrypto">
+                        <i class="ri-book-open-line"></i> <span data-key="t-apps">Bài Viết</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarApps">
+                    <div class="collapse menu-dropdown" id="sidebarCrypto">
                         <ul class="nav nav-sm flex-column">
 
                             <li class="nav-item">
@@ -129,11 +129,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarApps">
-                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Liên Hệ</span>
+                    <a class="nav-link menu-link" href="#sidebarInvoices" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarInvoices">
+                        <i class="ri-phone-line"></i> <span data-key="t-apps">Liên Hệ</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarApps">
+                    <div class="collapse menu-dropdown" id="sidebarInvoices">
                         <ul class="nav nav-sm flex-column">
 
                             <li class="nav-item">
